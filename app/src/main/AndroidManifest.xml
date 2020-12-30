@@ -4,10 +4,10 @@
     package="com.example.empty">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/AppCompatTheme"
         tools:ignore="AllowBackup">
         <activity android:name="com.example.empty.MainActivity">
