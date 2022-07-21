@@ -6,6 +6,7 @@ android {
     defaultConfig {
         applicationId "com.example.empty"
         minSdkVersion 21
+        //noinspection OldTargetApi
         targetSdkVersion 32
         versionCode 1
         versionName "1.0"
@@ -27,7 +28,7 @@ android {
 }
 
 dependencies {
-    //noinspection DifferentKotlinGradleVersion
+    //noinspection GradleDependency
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
 }
