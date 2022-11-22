@@ -2,7 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
+    namespace 'com.example.empty'
     defaultConfig {
         applicationId "com.example.empty"
         minSdkVersion 21
