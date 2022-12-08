@@ -6,8 +6,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="false"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppCompatTheme"
-        tools:ignore="AllowBackup">
+        tools:ignore="AllowBackup"
+        tools:targetApi="n">
         <activity
             android:name="com.example.empty.MainActivity"
             android:exported="true">

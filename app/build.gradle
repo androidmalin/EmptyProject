@@ -2,15 +2,20 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 33
+    compileSdk 33
+    buildToolsVersion '33.0.1'
     namespace 'com.example.empty'
     defaultConfig {
         applicationId "com.example.empty"
-        minSdkVersion 21
+        minSdk 23
         //noinspection OldTargetApi
-        targetSdkVersion 32
+        targetSdk 32
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64', 'x86'
+        }
     }
 
     buildTypes {
