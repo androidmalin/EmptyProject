@@ -16,6 +16,9 @@ android {
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64', 'x86'
         }
+
+        // https://stackoverflow.com/a/52508858/3326683
+        setProperty("archivesBaseName", "v${versionName}_${versionCode}")
     }
 
     buildTypes {
