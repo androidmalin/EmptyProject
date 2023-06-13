@@ -13,7 +13,7 @@ android {
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
         ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64', 'x86'
+            abiFilters 'arm64-v8a'
         }
 
         // https://stackoverflow.com/a/52508858/3326683
@@ -33,5 +33,16 @@ android {
 }
 
 dependencies {
+    //noinspection GradleDependency
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    //noinspection GradleDependency
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+    //noinspection GradleDependency
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //noinspection GradleDependency
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
     implementation project(':flutter')
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 }

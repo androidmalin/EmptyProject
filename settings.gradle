@@ -1,4 +1,4 @@
-rootProject.name = "EmptyProject"
+rootProject.name = "flutter_empty"
 include ':app'
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
