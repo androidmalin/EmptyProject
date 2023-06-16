@@ -1,7 +1,5 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android' version '1.7.22' apply true
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 33
@@ -27,7 +25,19 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+
+        // bug fixed:
+        //e: Incompatible classes were found in dependencies.
+        // Remove them from the classpath or use '-Xskip-metadata-version-check' to suppress errors
+        // /Users/user/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.6.1/10f354fdb64868baecd67128560c5a0d6312c495/lifecycle-common-2.6.1.jar!/META-INF/lifecycle-common.kotlin_module: Module was compiled with an incompatible version of Kotlin. The binary version of its metadata is 1.8.0, expected version is 1.5.1.
+        // https://stackoverflow.com/a/63515266/3326683
+        kotlin {
+            kotlinOptions {
+                freeCompilerArgs += "-Xskip-metadata-version-check"
+            }
+        }
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -38,55 +48,18 @@ android {
         exclude 'META-INF/CERT.RSA'
         exclude 'META-INF/MANIFEST.MF'
         exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/lifecycle-common.kotlin_module'
-        exclude 'META-INF/annotation-experimental_release.kotlin_module'
-        exclude 'META-INF/core_release.kotlin_module'
-        exclude 'META-INF/activity_release.kotlin_module'
-        exclude 'META-INF/lifecycle-livedata_release.kotlin_module'
-        exclude 'META-INF/activity-ktx_release.kotlin_module'
-        exclude 'META-INF/lifecycle-viewmodel-savedstate_release.kotlin_module'
-        exclude 'META-INF/savedstate-ktx_release.kotlin_module'
-        exclude 'META-INF/lifecycle-livedata-ktx_release.kotlin_module'
-        exclude 'META-INF/lifecycle-livedata-core-ktx_release.kotlin_module'
-        exclude 'META-INF/core-ktx_release.kotlin_module'
-        exclude 'META-INF/lifecycle-livedata-core_release.kotlin_module'
-        exclude 'META-INF/savedstate_release.kotlin_module'
-        exclude 'META-INF/lifecycle-runtime-ktx_release.kotlin_module'
-        exclude 'META-INF/lifecycle-runtime_release.kotlin_module'
-        exclude 'META-INF/kotlinx-coroutines-core.kotlin_module'
-        exclude 'META-INF/appcompat_release.kotlin_module'
-        exclude 'META-INF/recyclerview_release.kotlin_module'
-        exclude 'META-INF/kotlinx-coroutines-android.kotlin_module'
-        exclude 'META-INF/lifecycle-viewmodel_release.kotlin_module'
-        exclude 'META-INF/lifecycle-viewmodel-ktx_release.kotlin_module'
     }
 }
 
 dependencies {
     //region Lifecycle
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1") {
-        exclude group: 'org.jetbrains.kotlin'
-    }
-    implementation("androidx.lifecycle:lifecycle-common-java8:2.6.1") {
-        exclude group: 'org.jetbrains.kotlin'
-    }
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1") {
-        exclude group: 'org.jetbrains.kotlin'
-    }
-    implementation("androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1") {
-        exclude group: 'org.jetbrains.kotlin'
-    }
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1") {
-        exclude group: 'org.jetbrains.kotlin'
-    }
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
     //endregion
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.22"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.22"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.22"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22"
 }
-
 
 configurations.configureEach {
     resolutionStrategy {
@@ -94,21 +67,5 @@ configurations.configureEach {
         force "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.22"
         force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.22"
         force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22"
-        println("Print Variable : rootProject.ext.kotlin_version : ${rootProject.ext.kotlin_version}")
     }
 }
-
-
-
-//buildscript {
-//    ext.kotlin_version = '1.7.22'
-//    repositories {
-//        maven { url "https://maven.aliyun.com/repository/google" }
-//        mavenCentral()
-//        jcenter()
-//    }
-////    dependencies {
-////        classpath 'com.android.tools.build:gradle:7.0.0'
-////        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.22"
-////    }
-//}

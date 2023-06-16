@@ -4,13 +4,12 @@ buildscript {
     repositories {
         maven { url "https://maven.aliyun.com/repository/google" }
         mavenCentral()
-        jcenter()
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
         //noinspection DifferentKotlinGradleVersion
-       // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -18,7 +17,6 @@ allprojects {
     repositories {
         maven { url "https://maven.aliyun.com/repository/google" }
         mavenCentral()
-        jcenter()
     }
 }
 
