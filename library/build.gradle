@@ -1,20 +1,14 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'project-report'
 
 android {
     compileSdkVersion 33
     buildToolsVersion "30.0.2"
     defaultConfig {
-        applicationId "com.example.empty"
         minSdkVersion 23
         //noinspection ExpiredTargetSdkVersion,OldTargetApi
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-        ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64', 'x86'
-        }
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -28,8 +22,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    // bug fixed:
-    // https://stackoverflow.com/a/63515266/3326683
     kotlinOptions {
         jvmTarget = '1.8'
         freeCompilerArgs += "-Xskip-metadata-version-check"
@@ -47,7 +39,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
     implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
-    implementation project(path: ':library')
     //endregion
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.22"
