@@ -32,7 +32,10 @@ android {
     // https://stackoverflow.com/a/63515266/3326683
     kotlinOptions {
         jvmTarget = '1.8'
-        freeCompilerArgs += "-Xskip-metadata-version-check"
+        freeCompilerArgs += [
+                "-Xskip-metadata-version-check",
+                "-Xjvm-default=all",
+        ]
     }
 
     packagingOptions {
@@ -49,18 +52,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
     implementation project(path: ':library')
     //endregion
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.22"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.22"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.22"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22"
 }
 
 configurations.configureEach {
     resolutionStrategy {
-        force "org.jetbrains.kotlin:kotlin-stdlib:1.7.22"
-        force "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.22"
-        force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.22"
-        force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22"
+        force "org.jetbrains.kotlin:kotlin-stdlib:1.5.31"
+        force "org.jetbrains.kotlin:kotlin-stdlib-common:1.5.31"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.31"
     }
 }

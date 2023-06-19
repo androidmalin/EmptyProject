@@ -24,7 +24,10 @@ android {
 
     kotlinOptions {
         jvmTarget = '1.8'
-        freeCompilerArgs += "-Xskip-metadata-version-check"
+        freeCompilerArgs += [
+                "-Xskip-metadata-version-check",
+                "-Xjvm-default=all",
+        ]
     }
 
     packagingOptions {
@@ -40,18 +43,27 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
     //endregion
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.22"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.22"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.22"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22"
 }
 
 configurations.configureEach {
     resolutionStrategy {
-        force "org.jetbrains.kotlin:kotlin-stdlib:1.7.22"
-        force "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.22"
-        force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.22"
-        force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22"
+        force "org.jetbrains.kotlin:kotlin-stdlib:1.5.31"
+        force "org.jetbrains.kotlin:kotlin-stdlib-common:1.5.31"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.31"
+
+
+
+        def PATH = System.getenv('PATH')
+        def CLASSPATH = System.getenv('CLASSPATH')
+        def JRE_HOME = System.getenv('JRE_HOME')
+        def JAVA_HOME = System.getenv('JAVA_HOME')
+        def GRADLE_HOME = System.getenv('GRADLE_HOME')
+
+        println("PATH==>"+PATH)
+        println("CLASSPATH==>"+CLASSPATH)
+        println("JRE_HOME==>"+JRE_HOME)
+        println("JAVA_HOME==>"+JAVA_HOME)
+        println("GRADLE_HOME==>"+GRADLE_HOME)
     }
 }
