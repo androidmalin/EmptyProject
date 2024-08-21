@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdk 34
-    buildToolsVersion = '34.0.0'
+    compileSdk 35
+    buildToolsVersion = '35.0.0'
     namespace 'com.example.empty'
     defaultConfig {
         applicationId "com.example.empty"
         minSdk 23
-        //noinspection OldTargetApi
-        targetSdk 33
+        //noinspection EditedTargetSdkVersion,OldTargetApi
+        targetSdk 35
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -47,11 +47,11 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
 
     //region Lifecycle
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.1"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.8.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.8.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.8.4"
     //endregion
 }
 
