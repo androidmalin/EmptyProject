@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 33
-    buildToolsVersion = '33.0.2'
+    compileSdk 34
+    buildToolsVersion = '35.0.0'
     namespace 'com.example.empty'
     defaultConfig {
         applicationId "com.example.empty"
         minSdk 23
         //noinspection OldTargetApi
-        targetSdk 32
+        targetSdk 34
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
